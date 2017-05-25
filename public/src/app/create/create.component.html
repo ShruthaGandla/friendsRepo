@@ -1,0 +1,63 @@
+
+
+
+<form (submit) = "onSubmit()" #formData ="ngForm">
+
+  First Name:
+  <input type="text" name="firstName"
+  required
+  minlength="2"
+  maxlength="24"
+  [(ngModel)]="friend.firstName"
+  #firstName='ngModel' class="form-control"><br>
+
+  <div *ngIf=" (firstName.errors && ( firstName.dirty || firstName.touched))"
+     class="alert alert-danger">
+    <div [hidden]="!firstName.errors.required">
+      First Name is required
+    </div>
+    <div [hidden]="!firstName.errors.minlength">
+      First Name must be at least 4 characters long.
+    </div>
+    <div [hidden]="!firstName.errors.maxlength">
+      First Name cannot be more than 24 characters long.
+    </div>
+ </div>
+
+  Last Name:
+  <input type="text" name="lastName"
+  required
+  minlength="2"
+  maxlength="24"
+  [(ngModel)]="friend.lastName"
+  #lastName='ngModel' class="form-control"><br>
+
+  <div *ngIf=" (lastName.errors && ( lastName.dirty || lastName.touched))"
+     class="alert alert-danger">
+    <div [hidden]="!lastName.errors.required">
+      Last Name is required
+    </div>
+    <div [hidden]="!lastName.errors.minlength">
+      Last Name must be at least 4 characters long.
+    </div>
+    <div [hidden]="!lastName.errors.maxlength">
+      Last Name cannot be more than 24 characters long.
+    </div>
+ </div>
+
+
+ Birthday:
+ <input type="date" name="bday"
+ required
+ [(ngModel)]="friend.bday"
+ #bday='ngModel' class="form-control"><br>
+
+<input type="submit" [disabled]="!formData.form.valid">
+  
+</form>
+
+
+
+
+
+ 

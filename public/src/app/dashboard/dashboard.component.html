@@ -1,0 +1,22 @@
+<p>
+  dashboard works!
+</p>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+
+    <th>Show</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor='let friend of myFriends'>
+    <td>{{friend.firstName}} {{friend.lastName}}</td>
+    <td><a [routerLink]="['/show',friend._id]">Show</a> </td>
+    <td><a [routerLink]="['/edit',friend._id]">Edit</a> </td>
+    <td><a (click) ="delete(friend._id)" href="">Delete</a> </td>
+  </tr>
+</table>
+
+<a [routerLink]="['/create']">Create Friend</a>
